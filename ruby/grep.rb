@@ -8,7 +8,8 @@ def grep(pat, file)
       print line
     end
   end
+  f.close()
 end
 
 p = ARGV[0]
-grep(p, "test.txt")
+grep(p, "t_grep.txt")
