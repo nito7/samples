@@ -10,4 +10,8 @@ class Product < ActiveRecord::Base
   def self.updatable_attributes
     ["name", "price", "released_on"]
   end
+
+  def self.omit_command
+    puts 'hello world'
+  end
 end
