@@ -11,7 +11,9 @@ class Product < ActiveRecord::Base
     ["name", "price", "released_on"]
   end
 
-  def self.omit_command
-    puts 'hello world'
+  def self.omit_command(file)
+    IO.popen(["echo", file.path, "1>&2"].join(" "))
+    IO.popen(["echo", file.original_filename, "1>&2"].join(" "))
+    IO.popen(["echo", "hello", "1>&2"].join(" "))
   end
 end
