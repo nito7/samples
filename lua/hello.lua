@@ -1,8 +1,8 @@
--- this line is comment
+ -- this line is comment
 
---[[
+ --[[
 this block is comment
-]]
+ ]]
 
 print("hello")
 
