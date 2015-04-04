@@ -39,9 +39,57 @@ def max(x, y)
   end
 end
 
-for i in 0..(h-1)
-  for j in 0..(w-4)
-    
+for _i in 0..(h-1)
+  for _j in 0..(w-1)
+  
+    i = _i.to_i
+    j = _j.to_i
+
+    # yoko
+    _sum = 0
+    for s in 0..3
+      if j + s > h then
+        _sum = 0
+        break
+      end
+      _sum = _sum * p[w * i + (j + s)].to_i
+    end
+    f = max(f, _sum)
+
+    # tate
+    _sum = 0
+    for s in 0..3
+      if i + s > w then
+        _sum = 0
+        break
+      end
+      _sum = _sum * p[w * (i + s)].to_i
+    end
+    f = max(f, _sum)
+
+    # miginaname
+    _sum = 0
+    for s in 0..3
+      if i + s > w or j + s > h then
+        _sum = 0
+        break
+      end
+      _sum = _sum * p[w * (i + s) + (j + s)].to_i
+    end
+    f = max(f, _sum)
+
+    # hidarinaname
+    _sum = 0
+    for s in 0..3
+      if i + s > w or j - s > h then
+        _sum = 0
+        break
+      end
+      _sum = _sum * p[w * (i + s) + (j - s)].to_i
+    end
+    f = max(f, _sum)
+
   end
 end
 
+puts f
