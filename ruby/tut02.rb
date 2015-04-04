@@ -4,6 +4,10 @@
 puts " ---- rest argument ----"
 
 def baz(a, b, c, *r)
+  p a
+  p b
+  p c
+  p r # copied
   p a.object_id
   p b.object_id
   p c.object_id
@@ -11,6 +15,10 @@ def baz(a, b, c, *r)
 end
 
 def baz2(a, b, c, r)
+  p a
+  p b
+  p c
+  p r # reference
   p a.object_id
   p b.object_id
   p c.object_id
@@ -18,6 +26,7 @@ def baz2(a, b, c, r)
 end
 
 x = %w(Hot Tot Jin Jod Fie Fly Zan Zod Pik Snik Lun Lod Ichabod)
+p x
 puts x.object_id
 
 puts " --"
