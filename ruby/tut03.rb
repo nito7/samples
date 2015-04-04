@@ -18,3 +18,23 @@ p r
 
 
 
+puts " ---- block argument ----"
+
+def foo &b
+  @bk = b
+  10.times &@bk
+end
+
+foo {puts "hello"}
+
+
+puts " ---- caution ----"
+
+p [1,2,3].each {|x| puts x}, 4    # OK 
+puts " --"
+p [1,2,3].each do |x| puts x end, 4 # SyntaxError
+puts " --"
+p [1,2,3].each do |x| puts x end    # LocalJumpError
+puts " --"
+p([1,2,3].each()) {|x| puts x}      # LocalJumpError (same to above)
+
